@@ -1,0 +1,49 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "lsbook (dev)local",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file=env/dev.json",
+                // "--dart-define=TREE_SHAKE_ICONS=false",
+            ]
+        },
+        {
+            "name": "lsbook (stage)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+              
+             
+            ]
+        },
+        {
+            "name": "lsbook (prod)",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+            
+            ]
+        },
+        {
+            "name": "lsbook (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "args": [
+            
+            ]
+        },
+        {
+            "name": "lsbook (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release",
+            "args": [
+       
+            ]
+        }
+    ]
+}
