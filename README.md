@@ -10,30 +10,33 @@ A new Flutter project.
 - Bloc state management
 - Dio for API
 - go_router for route config
-<!-- - easy_localization for multiple languages -->
+<!-- - easy_localization for multiple languages 還沒用 -->
 
 ## Directory Structure
 
 ```tree
-/
-└─ lib/                        
-   ├─ data/                    # Data layer
-   │  ├─ models/              # Data models
-   │  ├─ network/            # Network related
-   │  │  ├─ config/         # API configurations
-   │  │  ├─ core/          # Core functionalities
-   │  │  ├─ interceptors/  # Network interceptors
-   │  │  └─ apis/         # API definitions
-   │  └─ repositories/    # Data access layer
-   ├─ presentation/      # Presentation layer
-   │  ├─ screens/       # Full pages
-   │  └─ ui_widget/     # UI components
-   ├─ state_management/ # State management
-   │  ├─ blocs/        # BLoC components
-   │  └─ cubit/        # Cubit components
-   ├─ config/          # Configuration
-   ├─ theme/           # Theme settings
-   └─ utils/           # Utilities
+lib/
+  ├── main.dart
+  ├── app.dart
+  ├── config/
+  │   └── router.dart      # GoRouter 配置
+  ├── core/
+  │   ├── dio_client.dart  # Dio HTTP 客戶端配置
+  │   └── constants.dart    
+  ├── features/
+  │   └── feature_name/
+  │       ├── data/
+  │       │   ├── models/
+  │       │   └── repositories/
+  │       ├── domain/
+  │       │   └── entities/
+  │       └── presentation/
+  │           ├── bloc/
+  │           ├── pages/
+  │           └── widgets/
+  └── shared/
+      ├── widgets/
+      └── utils/
 ```
 ## Generate Files Command
 ```bash
