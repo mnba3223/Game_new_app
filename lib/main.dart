@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:game_news/app.dart';
 void main() {
-  runApp(const MyApp());
+    WidgetsFlutterBinding.ensureInitialized();
+  
+  final newsRepository = NewsRepository();
+  
+  runApp(
+    MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider(create: (context) => newsRepository),
+      ],
+      child: const GameNewsApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
