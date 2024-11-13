@@ -11,8 +11,9 @@ _$NewsImpl _$$NewsImplFromJson(Map<String, dynamic> json) => _$NewsImpl(
       title: json['title'] as String,
       content: json['content'] as String,
       imageUrl: json['imageUrl'] as String,
-      publishedAt: DateTime.parse(json['published_at'] as String),
-      category: json['category'] as String?,
+      category: json['category'] as String,
+      createdAt: DateTime.parse(json['createdAt'] as String),
+      recommendCount: (json['recommendCount'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$NewsImplToJson(_$NewsImpl instance) =>
@@ -21,6 +22,7 @@ Map<String, dynamic> _$$NewsImplToJson(_$NewsImpl instance) =>
       'title': instance.title,
       'content': instance.content,
       'imageUrl': instance.imageUrl,
-      'published_at': instance.publishedAt.toIso8601String(),
       'category': instance.category,
+      'createdAt': instance.createdAt.toIso8601String(),
+      'recommendCount': instance.recommendCount,
     };

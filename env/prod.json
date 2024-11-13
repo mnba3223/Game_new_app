@@ -1,0 +1,9 @@
+{
+    "baseUrl": "",
+    "paths": {
+        "api/*": "http://localhost:3000/api/*"
+    }
+    ,
+    "localUrl": "",
+    "mode": "production mode"
+}

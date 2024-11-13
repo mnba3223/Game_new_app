@@ -1,0 +1,11 @@
+{
+    
+
+    "baseUrl": "http://10.0.2.2:5176",
+    "paths": {
+        "api/*": "http://localhost:3000/*"
+    }
+    ,
+    "localUrl": "https://localhost:5050",
+    "mode": "development mode"
+}

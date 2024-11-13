@@ -10,8 +10,9 @@ class News with _$News {
     required String title,
     required String content,
     required String imageUrl,
-    @JsonKey(name: 'published_at') required DateTime publishedAt,
-    String? category,
+    required String category,
+    @JsonKey(name: 'createdAt') required DateTime createdAt,
+    @JsonKey(name: 'recommendCount') required int recommendCount,
   }) = _News;
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);

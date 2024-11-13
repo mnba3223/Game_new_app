@@ -24,9 +24,11 @@ mixin _$News {
   String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
-  @JsonKey(name: 'published_at')
-  DateTime get publishedAt => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
+  @JsonKey(name: 'createdAt')
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  @JsonKey(name: 'recommendCount')
+  int get recommendCount => throw _privateConstructorUsedError;
 
   /// Serializes this News to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,8 +49,9 @@ abstract class $NewsCopyWith<$Res> {
       String title,
       String content,
       String imageUrl,
-      @JsonKey(name: 'published_at') DateTime publishedAt,
-      String? category});
+      String category,
+      @JsonKey(name: 'createdAt') DateTime createdAt,
+      @JsonKey(name: 'recommendCount') int recommendCount});
 }
 
 /// @nodoc
@@ -70,8 +73,9 @@ class _$NewsCopyWithImpl<$Res, $Val extends News>
     Object? title = null,
     Object? content = null,
     Object? imageUrl = null,
-    Object? publishedAt = null,
-    Object? category = freezed,
+    Object? category = null,
+    Object? createdAt = null,
+    Object? recommendCount = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -90,14 +94,18 @@ class _$NewsCopyWithImpl<$Res, $Val extends News>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      publishedAt: null == publishedAt
-          ? _value.publishedAt
-          : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      category: freezed == category
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      recommendCount: null == recommendCount
+          ? _value.recommendCount
+          : recommendCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -114,8 +122,9 @@ abstract class _$$NewsImplCopyWith<$Res> implements $NewsCopyWith<$Res> {
       String title,
       String content,
       String imageUrl,
-      @JsonKey(name: 'published_at') DateTime publishedAt,
-      String? category});
+      String category,
+      @JsonKey(name: 'createdAt') DateTime createdAt,
+      @JsonKey(name: 'recommendCount') int recommendCount});
 }
 
 /// @nodoc
@@ -134,8 +143,9 @@ class __$$NewsImplCopyWithImpl<$Res>
     Object? title = null,
     Object? content = null,
     Object? imageUrl = null,
-    Object? publishedAt = null,
-    Object? category = freezed,
+    Object? category = null,
+    Object? createdAt = null,
+    Object? recommendCount = null,
   }) {
     return _then(_$NewsImpl(
       id: null == id
@@ -154,14 +164,18 @@ class __$$NewsImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
-      publishedAt: null == publishedAt
-          ? _value.publishedAt
-          : publishedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      category: freezed == category
+      category: null == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      recommendCount: null == recommendCount
+          ? _value.recommendCount
+          : recommendCount // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -174,8 +188,9 @@ class _$NewsImpl implements _News {
       required this.title,
       required this.content,
       required this.imageUrl,
-      @JsonKey(name: 'published_at') required this.publishedAt,
-      this.category});
+      required this.category,
+      @JsonKey(name: 'createdAt') required this.createdAt,
+      @JsonKey(name: 'recommendCount') required this.recommendCount});
 
   factory _$NewsImpl.fromJson(Map<String, dynamic> json) =>
       _$$NewsImplFromJson(json);
@@ -189,14 +204,17 @@ class _$NewsImpl implements _News {
   @override
   final String imageUrl;
   @override
-  @JsonKey(name: 'published_at')
-  final DateTime publishedAt;
+  final String category;
   @override
-  final String? category;
+  @JsonKey(name: 'createdAt')
+  final DateTime createdAt;
+  @override
+  @JsonKey(name: 'recommendCount')
+  final int recommendCount;
 
   @override
   String toString() {
-    return 'News(id: $id, title: $title, content: $content, imageUrl: $imageUrl, publishedAt: $publishedAt, category: $category)';
+    return 'News(id: $id, title: $title, content: $content, imageUrl: $imageUrl, category: $category, createdAt: $createdAt, recommendCount: $recommendCount)';
   }
 
   @override
@@ -209,16 +227,18 @@ class _$NewsImpl implements _News {
             (identical(other.content, content) || other.content == content) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.publishedAt, publishedAt) ||
-                other.publishedAt == publishedAt) &&
             (identical(other.category, category) ||
-                other.category == category));
+                other.category == category) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.recommendCount, recommendCount) ||
+                other.recommendCount == recommendCount));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, title, content, imageUrl, publishedAt, category);
+  int get hashCode => Object.hash(runtimeType, id, title, content, imageUrl,
+      category, createdAt, recommendCount);
 
   /// Create a copy of News
   /// with the given fields replaced by the non-null parameter values.
@@ -238,12 +258,14 @@ class _$NewsImpl implements _News {
 
 abstract class _News implements News {
   const factory _News(
-      {required final String id,
-      required final String title,
-      required final String content,
-      required final String imageUrl,
-      @JsonKey(name: 'published_at') required final DateTime publishedAt,
-      final String? category}) = _$NewsImpl;
+          {required final String id,
+          required final String title,
+          required final String content,
+          required final String imageUrl,
+          required final String category,
+          @JsonKey(name: 'createdAt') required final DateTime createdAt,
+          @JsonKey(name: 'recommendCount') required final int recommendCount}) =
+      _$NewsImpl;
 
   factory _News.fromJson(Map<String, dynamic> json) = _$NewsImpl.fromJson;
 
@@ -256,10 +278,13 @@ abstract class _News implements News {
   @override
   String get imageUrl;
   @override
-  @JsonKey(name: 'published_at')
-  DateTime get publishedAt;
+  String get category;
   @override
-  String? get category;
+  @JsonKey(name: 'createdAt')
+  DateTime get createdAt;
+  @override
+  @JsonKey(name: 'recommendCount')
+  int get recommendCount;
 
   /// Create a copy of News
   /// with the given fields replaced by the non-null parameter values.
